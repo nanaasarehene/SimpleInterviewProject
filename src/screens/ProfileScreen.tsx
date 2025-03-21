@@ -1,11 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import { CardTitle, Container } from '../styles/StyledComponents'
+import AppHeader from '../components/AppHeader'
 
-const ProfileScreen = () => {
+const ProfileScreen = ({navigation}) => {
   return (
-    <View>
-      <Text>ProfileScreen</Text>
-    </View>
+    <Container>
+      <AppHeader title="Profile" navigation={navigation} />
+      <CardTitle>Profile Screen</CardTitle>
+    </Container>
   )
 }
 

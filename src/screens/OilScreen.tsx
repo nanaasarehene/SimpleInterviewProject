@@ -1,11 +1,14 @@
-import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
+import { StyleSheet } from 'react-native';
+import AppHeader from '../components/AppHeader';
+import { CardTitle, Container } from '../styles/StyledComponents';
 
-const OilScreen = () => {
+const OilScreen = ({navigation}) => {
   return (
-    <View>
-      <Text>DealScreen</Text>
-    </View>
+    <Container>
+      <AppHeader title="Oil Checking " navigation={navigation} />
+      <CardTitle>Oil Screen</CardTitle>
+    </Container>
   );
 };
 

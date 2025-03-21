@@ -1,13 +1,14 @@
 // src/navigation/BottomTabNavigator.tsx
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react';
-import { Image } from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
 import AppAssets from '../assets/registry';
 import CarScreen from '../screens/CarScreen';
 import HomeScreen from '../screens/HomeScreen';
 import MaintenanceScreen from '../screens/MaintenanceScreen';
 import OilScreen from '../screens/OilScreen';
 import ProfileScreen from '../screens/ProfileScreen';
+import { AppTheme } from '../styles/theme';
 import { MainTabParamList } from '../types/navigation.types';
 import { ROUTES } from '../types/route';
 
@@ -22,7 +23,7 @@ const BottomTabNavigator: React.FC = () => {
         tabBarShowLabel: false,
         tabBarStyle: {
           height: 60,
-          backgroundColor: '#fff',
+          backgroundColor: AppTheme,
           borderTopWidth: 0,
           elevation: 5,
           shadowOpacity: 0.1,
@@ -38,10 +39,12 @@ const BottomTabNavigator: React.FC = () => {
         component={HomeScreen}
         options={{
           tabBarIcon: ({ focused }) => (
-            <Image
-              source={AppAssets.Icons.Home}
-              style={{ width: 24, height: 24, tintColor: focused ? '#ff4d4d' : '#8E8E93' }}
-            />
+            <View style={[styles.iconWrapper, focused && styles.activeIconWrapper]}>
+              <Image
+                source={AppAssets.Icons.Home}
+                style={[styles.icon, focused && styles.activeIcon]}
+              />
+            </View>
           ),
         }}
       />
@@ -50,10 +53,12 @@ const BottomTabNavigator: React.FC = () => {
         component={MaintenanceScreen}
         options={{
           tabBarIcon: ({ focused }) => (
-            <Image
-              source={AppAssets.Icons.Tool}
-              style={{ width: 24, height: 24, tintColor: focused ? '#ff4d4d' : '#8E8E93' }}
-            />
+            <View style={[styles.iconWrapper, focused && styles.activeIconWrapper]}>
+              <Image
+                source={AppAssets.Icons.Tool}
+                style={[styles.icon, focused && styles.activeIcon]}
+              />
+            </View>
           ),
         }}
       />
@@ -62,10 +67,12 @@ const BottomTabNavigator: React.FC = () => {
         component={CarScreen}
         options={{
           tabBarIcon: ({ focused }) => (
-            <Image
-              source={AppAssets.Icons.Car}
-              style={{ width: 24, height: 24, tintColor: focused ? '#ff4d4d' : '#8E8E93' }}
-            />
+            <View style={[styles.iconWrapper, focused && styles.activeIconWrapper]}>
+              <Image
+                source={AppAssets.Icons.Car}
+                style={[styles.icon, focused && styles.activeIcon]}
+              />
+            </View>
           ),
         }}
       />
@@ -74,10 +81,12 @@ const BottomTabNavigator: React.FC = () => {
         component={OilScreen}
         options={{
           tabBarIcon: ({ focused }) => (
-            <Image
-              source={AppAssets.Icons.Oil}
-              style={{ width: 24, height: 24, tintColor: focused ? '#ff4d4d' : '#8E8E93' }}
-            />
+            <View style={[styles.iconWrapper, focused && styles.activeIconWrapper]}>
+              <Image
+                source={AppAssets.Icons.Oil}
+                style={[styles.icon, focused && styles.activeIcon]}
+              />
+            </View>
           ),
         }}
       />
@@ -86,10 +95,12 @@ const BottomTabNavigator: React.FC = () => {
         component={ProfileScreen}
         options={{
           tabBarIcon: ({ focused }) => (
-            <Image
-              source={AppAssets.Icons.User}
-              style={{ width: 24, height: 24, tintColor: focused ? '#ff4d4d' : '#8E8E93' }}
-            />
+            <View style={[styles.iconWrapper, focused && styles.activeIconWrapper]}>
+              <Image
+                source={AppAssets.Icons.User}
+                style={[styles.icon, focused && styles.activeIcon]}
+              />
+            </View>
           ),
         }}
       />
@@ -98,3 +109,26 @@ const BottomTabNavigator: React.FC = () => {
 };
 
 export default BottomTabNavigator;
+
+const styles = StyleSheet.create({
+  iconWrapper: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 60,
+    height: 60,
+    borderRadius:50,
+  },
+  activeIconWrapper: {
+    backgroundColor: AppTheme.colors.primary,
+  },
+  icon: {
+    width: 16,
+    height: 16,
+    tintColor: AppTheme.colors.gray,
+  },
+  activeIcon: {
+    width: 48,
+    height: 48,
+    tintColor: AppTheme.colors.white,
+  },
+});
