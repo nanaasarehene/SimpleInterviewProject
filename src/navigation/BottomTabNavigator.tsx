@@ -23,7 +23,7 @@ const BottomTabNavigator: React.FC = () => {
         tabBarShowLabel: false,
         tabBarStyle: {
           height: 60,
-          backgroundColor: AppTheme,
+          backgroundColor: AppTheme.colors.white,
           borderTopWidth: 0,
           elevation: 5,
           shadowOpacity: 0.1,
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     backgroundColor: AppTheme.colors.primary,
   },
   icon: {
-    width: 16,
+    width: 26,
     height: 16,
     tintColor: AppTheme.colors.gray,
   },

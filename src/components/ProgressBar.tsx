@@ -1,8 +1,15 @@
 import React from 'react';
 import { ProgressBarContainer, ProgressBarFill, ProgressText } from '../styles/StyledComponents';
+import { StyleProp, ViewStyle } from 'react-native';
 
-const ProgressBar = ({ progress, label, subLabel, progressBarStyle }) => {
-  return (
+interface ProgressBarProps {
+  progress: number;
+  label?: string;
+  subLabel?: string;
+  progressBarStyle?: StyleProp<ViewStyle>;
+}
+
+const ProgressBar: React.FC<ProgressBarProps> = ({ progress, label, subLabel, progressBarStyle }) => {  return (
     <>
       {label && <ProgressText>{label}</ProgressText>}
       <ProgressBarContainer style={progressBarStyle}>

@@ -7,7 +7,7 @@ const { width } = Dimensions.get('window');
 
 export const Container = styled.View`
   flex: 1;
-  background-color: #f5f5f5;
+  background-color: ${AppTheme.colors.white};
   
 `;
 
@@ -84,7 +84,7 @@ export const CardButtonText = styled.Text`
 
 export const ProgressBarContainer = styled.View`
   width: 100%;
-  height: 8px;
+  height: 12px;
   background-color: #e0e0e0;
   border-radius: 4px;
   overflow: hidden;

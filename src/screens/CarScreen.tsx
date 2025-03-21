@@ -6,9 +6,15 @@ import AppHeader from '../components/AppHeader';
 import Card from '../components/Card';
 import ProgressBar from '../components/ProgressBar';
 import { CardContainer, CardTitle, Container, DateText, TipText } from '../styles/StyledComponents';
+import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
+import { MainTabParamList } from '../types/navigation.types';
+import { ROUTES } from '../types/route';
 
-const CarScreen = ({ navigation }) => {
-  return (
+interface CarScreenProps {
+  navigation: BottomTabNavigationProp<MainTabParamList, typeof ROUTES.MAIN.TAB.CAR>;
+}
+
+const CarScreen: React.FC<CarScreenProps> = ({ navigation }) => {  return (
     <Container>
       <AppHeader title="Hi Isaac" navigation={navigation} />
       <View style={styles.container}>
@@ -30,7 +36,7 @@ const CarScreen = ({ navigation }) => {
             title="Maintenance"
             value="€3,750"
             buttonText="Schedule"
-            buttonIcon={AppAssets.Icons.Add} // Ensure this is a square-plus icon
+            buttonIcon={AppAssets.Icons.Add} 
             onButtonPress={() => { }}
             style={styles.card}
           />
